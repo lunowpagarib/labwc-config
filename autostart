@@ -1,5 +1,11 @@
 swayidle -w \
 	timeout 300 'swaylock -f -c 000000' \
-	timeout 600 'wlopm --off \*' \
+	timeout 333 'wlopm --off \*' \
 	resume 'wlopm --on \*' \
 	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+
+wl-gammarelay-rs 2>&1 &
+
+lxqt-policykit-agent >/dev/null 2>&1 &
+
+wl-paste --watch cliphist store
